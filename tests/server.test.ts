@@ -6,7 +6,7 @@ describe('Tests endpoints defined in server.ts', () => {
       const response = await fetch('http://localhost:3000/')
 
       const text = await response.text()
-      expect(text).toBe("G'day Worldxxxx")
+      expect(text).toBe("G'day World")
     })
   })
 })
