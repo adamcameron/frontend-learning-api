@@ -72,7 +72,7 @@ docker exec -it frontend-learning-api-node-1 npx tsc --watch --noEmit
 Connecting to the DB from the container:
 
 ```
-psql --dbname=fl --host=localhost --port=5432 --username=fl_user
+docker exec -it frontend-learning-api-postgres-1 psql --dbname=fl --host=localhost --port=5432 --username=fl_user
 ```
 
 No need for pwd using that approach as there's a `~/.pgpass` file in place in the container file system.
