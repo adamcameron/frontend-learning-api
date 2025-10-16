@@ -1,12 +1,17 @@
 {
   "name": "frontend-learning-api",
   "private": true,
+  "type": "module",
   "version": "1.0.0",
   "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",
+    "@types/express": "^5.0.3",
     "@types/node": "^24.7.2",
+    "@types/pg": "^8.15.5",
     "@vitest/coverage-v8": "^3.2.4",
     "@vitest/ui": "^3.2.4",
     "eslint": "^9.37.0",
@@ -15,12 +20,14 @@
     "jiti": "^2.6.1",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.1",
     "vitest": "^3.2.4"
   },
   "scripts": {
     "build": "tsc",
+    "dev": "nodemon src/server.ts",
     "lint": "eslint .",
     "lint:watch": "nodemon --watch src --ext ts,tsx --exec 'npx eslint --no-cache'",
     "prettier-format": "prettier --config .prettierrc --write 'src/**/*.ts' 'tests/**/*.ts'",
