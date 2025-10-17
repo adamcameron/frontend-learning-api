@@ -10,12 +10,14 @@ export class ProfileService {
   async get(): Promise<Profile[]> {
     const client = new Client(DbConnectionService.getConfig())
 
-    await client.connect()
-    const result = await client.query<Profile>(
-      'SELECT id, src, alt FROM profiles'
-    )
-    await client.end()
-
-    return result.rows
+    try {
+      await client.connect()
+      const result = await client.query<Profile>(
+        'SELECT id, src, alt FROM profiles'
+      )
+      return result.rows
+    } finally {
+      await client.end()
+    }
   }
 }
