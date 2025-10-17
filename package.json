@@ -30,7 +30,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon dist/src/index.js",
+    "dev": "tsc && node dist/index.js",
     "lint": "eslint .",
     "lint:watch": "nodemon --watch src --ext ts,tsx --exec 'npx eslint --no-cache'",
     "prettier-format": "prettier --config .prettierrc --write 'src/**/*.ts' 'tests/**/*.ts'",
