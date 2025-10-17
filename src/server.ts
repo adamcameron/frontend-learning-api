@@ -1,5 +1,5 @@
 import express from 'express'
-const app = express()
+export const app = express()
 
 app.get('/', function (req, res) {
   return res.send("G'day World")
