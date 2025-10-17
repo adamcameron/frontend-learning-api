@@ -1,0 +1,5 @@
+PGUSER=fl_user
+PGHOST=postgres
+PGPORT=5432
+PGDATABASE=fl
+POSTGRES_PASSWORD_FILE=/run/secrets/db_password

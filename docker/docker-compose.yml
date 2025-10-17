@@ -4,6 +4,9 @@ services:
       context: ..
       dockerfile: docker/node/Dockerfile
 
+    env_file:
+      - node/envVars.public
+
     volumes:
       - ..:/usr/src/app
       - node_modules:/usr/src/app/node_modules
@@ -15,6 +18,9 @@ services:
 
     stdin_open: true
     tty: true
+
+    secrets:
+      - db_password
 
   postgres:
     build:
