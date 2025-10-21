@@ -19,6 +19,12 @@ docker compose -f docker/docker-compose.yml build
 docker compose -f docker/docker-compose.yml up --detach
 ```
 
+## Running the web server
+
+```
+docker exec -it frontend-learning-api-node-1 npm run dev
+```
+
 ## Starting test watcher
 
 ```
