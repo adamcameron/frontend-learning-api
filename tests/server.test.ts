@@ -24,6 +24,10 @@ describe('Tests endpoints defined in server.ts', () => {
       }
       expect(response.body.length).toBeGreaterThan(0)
 
+      expect(response.headers['access-control-allow-origin']).toBe(
+        process.env.CLIENT_APP_CORS_ORIGIN
+      )
+
       response.body.forEach((profile: Profile) => {
         expect(profile).toEqual({
           id: expect.any(Number) as number,

@@ -1,3 +1,4 @@
+CLIENT_APP_CORS_ORIGIN=http://localhost:5173
 PGUSER=fl_user
 PGHOST=postgres
 PGPORT=5432
