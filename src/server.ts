@@ -19,24 +19,18 @@ app
   .get('/', (req, res) => res.send("G'day World"))
   .get('/profiles', async (req, res) => {
     const profiles: Profile[] = await new ProfileService().get()
-    res.type('application/json').send(JSON.stringify(profiles))
+    res.send(profiles)
   })
   .post('/profiles', async (req, res) => {
     try {
       const profile: Profile = await new ProfileService().create(req.body)
-      res
-        .type('application/json')
-        .status(StatusCodes.CREATED)
-        .send(JSON.stringify(profile))
+      res.status(StatusCodes.CREATED).send(profile)
     } catch (e) {
       if (e instanceof ProfileError) {
-        res
-          .type('application/json')
-          .status(StatusCodes.BAD_REQUEST)
-          .send({
-            message: `[${JSON.stringify(req.body)}] is not valid`,
-            detail: "object must contain populated 'src' and 'alt' properties",
-          })
+        res.status(StatusCodes.BAD_REQUEST).send({
+          message: `[${JSON.stringify(req.body)}] is not valid`,
+          detail: "object must contain populated 'src' and 'alt' properties",
+        })
         return
       }
       throw e

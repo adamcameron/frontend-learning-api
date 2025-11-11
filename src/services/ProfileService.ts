@@ -53,13 +53,14 @@ export class ProfileService {
   }
 
   private isNewProfile(values: unknown): values is NewProfile {
-    const obj = values as object
+    if (typeof values !== 'object' || values === null) {
+      return false
+    }
     return (
-      obj !== null &&
-      'src' in obj &&
-      String(obj.src).length > 0 &&
-      'alt' in obj &&
-      String(obj.alt).length > 0
+      'src' in values &&
+      String(values.src).length > 0 &&
+      'alt' in values &&
+      String(values.alt).length > 0
     )
   }
 }

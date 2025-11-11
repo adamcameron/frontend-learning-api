@@ -20,9 +20,7 @@ describe('Tests of ProfileService', () => {
         const service = new ProfileService()
         const errorDetail = JSON.stringify(value)
 
-        await expect(async () => {
-          await service.create(value)
-        }).rejects.toThrowError(
+        await expect(service.create(value)).rejects.toThrowError(
           new ProfileError(
             `object [${errorDetail}] cannot be used as a NewProfile`
           )
