@@ -21,6 +21,7 @@ export class ProfileService {
       const result = await client.query<Profile>(
         'SELECT id, src, alt FROM profiles'
       )
+      await this.fakeDelay()
       return result.rows
     } finally {
       await client.end()
@@ -62,6 +63,10 @@ export class ProfileService {
       'alt' in values &&
       String(values.alt).length > 0
     )
+  }
+
+  private async fakeDelay() {
+    return await new Promise((resolve) => setTimeout(resolve, 500))
   }
 }
 
